@@ -32,19 +32,15 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# --- Branding Header ---
 st.markdown('<p class="title">🔎 Tathya</p>', unsafe_allow_html=True)
 st.markdown('<p class="subtitle">Uncover the truth, one case at a time — ABCL Internal Platform</p>', unsafe_allow_html=True)
 st.markdown("---")
 
-# --- Session State ---
 if "cases" not in st.session_state:
     st.session_state.cases = []
 
-# --- Navigation ---
 menu = st.sidebar.radio("📁 Navigate", ["Home", "Case Entry", "Case Tracker", "Approver Panel", "About Tathya"])
 
-# --- Home Page ---
 if menu == "Home":
     st.markdown("""
         <div style='background-color: #FFF4D9; padding: 2rem 2rem; border-radius: 12px; border-left: 6px solid #C7222A;'>
@@ -95,7 +91,6 @@ if menu == "Home":
         </p>
     """, unsafe_allow_html=True)
 
-# --- Case Entry Page ---
 elif menu == "Case Entry":
     st.subheader("📄 Enter New Case")
     with st.form("case_form"):
@@ -127,7 +122,6 @@ elif menu == "Case Entry":
             else:
                 st.error("⚠️ Please fill all required fields.")
 
-# --- Case Tracker Page ---
 elif menu == "Case Tracker":
     st.subheader("📊 Track Submitted Cases")
     filter_reviewer = st.selectbox("Filter by Reviewer", ["All", "Ravi", "Meena", "Ajay"])
@@ -141,7 +135,6 @@ elif menu == "Case Tracker":
     else:
         st.info("No cases available for this reviewer.")
 
-# --- Approver Panel Page ---
 elif menu == "Approver Panel":
     st.subheader("🔐 Lead Approver Panel")
     st.warning("Restricted: This section is only for investigation leads.")
@@ -156,7 +149,6 @@ elif menu == "Approver Panel":
     else:
         st.info("No cases submitted yet.")
 
-# --- About Page ---
 elif menu == "About Tathya":
     st.subheader("📘 About Tathya")
     st.markdown("""
